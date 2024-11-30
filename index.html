@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Poster with Moving Letters and Blinking Button</title>
+    <style>
+        /* General styles for the page */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container for the poster */
+        .poster-container {
+            perspective: 1500px;
+        }
+
+        /* The 3D poster */
+        .poster {
+            width: 300px;
+            height: 450px;
+            background: url('https://i.postimg.cc/CxJYc952/BYCF.jpg') no-repeat center center/cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        /* 3D hover effect */
+        .poster:hover {
+            transform: rotateY(20deg) rotateX(10deg);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Title on the poster with moving letters */
+        .poster-title {
+            position: absolute;
+            top: 20px; /* Position the title at the top */
+            left: 20px;
+            font-size: 24px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-weight: bold;
+            display: flex;
+        }
+
+        /* Individual letters for the moving animation */
+        .poster-title span {
+            display: inline-block;
+            animation: moveLetter 1s ease infinite;
+        }
+
+        .poster-title span:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+
+        .poster-title span:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+
+        /* Moving letters animation */
+        @keyframes moveLetter {
+            0% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+        }
+
+        /* Blinking Button Styles */
+        .register-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            animation: blink 1.5s infinite;
+        }
+
+        /* Blinking effect using CSS animation */
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Hover effect for the button */
+        .register-btn:hover {
+            background-color: #ff4d4d;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 3D Poster container -->
+    <div class="poster-container">
+        <div class="poster">
+            <div class="poster-title">
+                <!-- Split the title into individual spans for moving letters -->
+                <span>B</span>
+                <span>Y</span>
+                <span>C</span>
+                <span>F</span>
+                <span> </span>
+                <span>W</span>
+                <span>i</span>
+                <span>n</span>
+                <span>t</span>
+                <span>e</span>
+                <span>r</span>
+                <span> </span>
+                <span>F</span>
+                <span>e</span>
+                <span>s</span>
+                <span>t</span>
+                <span>-</span>
+                <span>2</span>
+                <span>4</span>
+            </div>
+            <a  href="https://docs.google.com/forms/d/e/1FAIpQLSfvlz1TZD0NRhMin5xQRS8fQuWjgOHD5ZlVTYU0x2tRVL8sYw/viewform?usp=sf_link" target="_blank">
+            <button class="register-btn">Register Now</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
